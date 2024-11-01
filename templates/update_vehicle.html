@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Atualizar Veículo</title>
+</head>
+<body>
+<div class="container">
+    <h1 class="mt-5">Atualizar Veículo</h1>
+    <form method="POST" action="/update/{{ vehicle.id }}">
+        <div class="form-group">
+            <label for="oldmodel">Modelo Antigo</label>
+            <input type="text" class="form-control" id="oldmodel" name="oldmodel" value="{{ vehicle.model }}" readonly>
+        </div>
+        <div class="form-group">
+            <label for="newmodel">Novo Modelo</label>
+            <input type="text" class="form-control" id="newmodel" name="newmodel" required>
+        </div>
+        <div class="form-group">
+            <label for="newbrand">Nova Marca</label>
+            <input type="text" class="form-control" id="newbrand" name="newbrand" required>
+        </div>
+        <div class="form-group">
+            <label for="newprice">Novo Preço</label>
+            <input type="number" class="form-control" id="newprice" name="newprice" step="0.01" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Atualizar Veículo</button>
+    </form>
+    <a href="/" class="btn btn-secondary mt-3">Voltar para a Lista</a>
+</div>
+</body>
+</html>

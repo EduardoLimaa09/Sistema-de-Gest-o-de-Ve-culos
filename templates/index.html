@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Gestão de Veículos</title>
+</head>
+<body>
+<div class="container">
+    <h1 class="mt-5">Gestão de Veículos</h1>
+
+    <form method="POST" class="mb-4">
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="model">Modelo</label>
+                <input type="text" class="form-control" id="model" name="model" required>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="brand">Marca</label>
+                <input type="text" class="form-control" id="brand" name="brand" required>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="price">Preço</label>
+                <input type="number" class="form-control" id="price" name="price" step="0.01" required>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Adicionar Veículo</button>
+    </form>
+
+    <form method="POST" class="mb-4">
+        <div class="form-group">
+            <label for="search_query">Buscar Veículo</label>
+            <input type="text" class="form-control" id="search_query" name="search_query">
+        </div>
+        <button type="submit" class="btn btn-secondary">Buscar</button>
+    </form>
+
+    <h2>Todos os Veículos</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Modelo</th>
+                <th>Marca</th>
+                <th>Preço</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for vehicle in vehicles %}
+            <tr>
+                <td>{{ vehicle.id }}</td>
+                <td><a href="{{ url_for('vehicle_detail', vehicle_id=vehicle.id) }}">{{ vehicle.model }}</a></td>
+                <td>{{ vehicle.brand }}</td>
+                <td>{{ vehicle.price }}</td>
+                <td>
+                    <form action="/update/{{ vehicle.id }}" method="GET" class="d-inline">
+                        <button type="submit" class="btn btn-warning btn-sm">Atualizar</button>
+                    </form>
+                    <form action="/delete" method="POST" class="d-inline">
+                        <input type="hidden" name="model" value="{{ vehicle.model }}">
+                        <button type="submit" class="btn btn-danger btn-sm">Excluir</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h2>Feedbacks Recebidos</h2>
+    <ul class="list-group mb-4">
+        {% for feedback in feedbacks %}
+        <li class="list-group-item"><strong>{{ feedback.name }}:</strong> {{ feedback.message }}</li>
+        {% endfor %}
+    </ul>
+
+    <a href="/feedback" class="btn btn-info">Deixar Feedback</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Detalhes do Veículo</title>
+</head>
+<body>
+<div class="container">
+    <h1 class="mt-5">Detalhes do Veículo</h1>
+    <ul class="list-group">
+        <li class="list-group-item"><strong>ID:</strong> {{ vehicle.id }}</li>
+        <li class="list-group-item"><strong>Modelo:</strong> {{ vehicle.model }}</li>
+        <li class="list-group-item"><strong>Marca:</strong> {{ vehicle.brand }}</li>
+        <li class="list-group-item"><strong>Preço:</strong> R$ {{ vehicle.price }}</li>
+    </ul>
+    <a href="/" class="btn btn-primary mt-3">Voltar para a Lista</a>
+</div>
+</body>
+</html>

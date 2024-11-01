@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Deixar Feedback</title>
+</head>
+<body>
+<div class="container">
+    <h1 class="mt-5">Deixe seu Feedback</h1>
+    <form method="POST">
+        <div class="form-group">
+            <label for="name">Seu Nome</label>
+            <input type="text" class="form-control" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="feedback">Seu Feedback</label>
+            <textarea class="form-control" id="feedback" name="feedback" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar Feedback</button>
+    </form>
+    <a href="/" class="btn btn-secondary mt-3">Voltar para a Lista</a>
+</div>
+</body>
+</html>
